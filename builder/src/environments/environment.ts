@@ -1,6 +1,5 @@
 export const environment = {
   production: false,
   envName: 'development',
-  //apiUrl: 'https://api.lumieresiga.com/',
-  apiUrl: 'http://localhost:3200/',
+  apiUrl: 'https://api.matisestudio.com/',
 };
