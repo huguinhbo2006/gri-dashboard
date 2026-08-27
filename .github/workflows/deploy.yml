@@ -39,8 +39,8 @@ jobs:
           host: ${{ secrets.HOSTINGER_SSH_HOST || '195.35.39.62' }}
           port: ${{ secrets.HOSTINGER_SSH_PORT || '65002' }}
           username: ${{ secrets.HOSTINGER_SSH_USER || 'u111559603' }}
-          key: ${{ secrets.HOSTINGER_SSH_KEY || secrets.SSH_KEY }}
-          password: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY || secrets.ssh_key || secrets.SSH_KEY }}
+          password: ${{ secrets.HOSTINGER_SSH_PASSWORD || secrets.password || 'Cruzazul29.$' }}
           script: |
             TARGET="${{ secrets.BUILDER_TARGET_DIR || '/home/u111559603/domains/tudominio.com/public_html/builder' }}"
             mkdir -p "$TARGET"
@@ -51,8 +51,8 @@ jobs:
           host: ${{ secrets.HOSTINGER_SSH_HOST || '195.35.39.62' }}
           port: ${{ secrets.HOSTINGER_SSH_PORT || '65002' }}
           username: ${{ secrets.HOSTINGER_SSH_USER || 'u111559603' }}
-          key: ${{ secrets.HOSTINGER_SSH_KEY || secrets.SSH_KEY }}
-          password: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY || secrets.ssh_key || secrets.SSH_KEY }}
+          password: ${{ secrets.HOSTINGER_SSH_PASSWORD || secrets.password || 'Cruzazul29.$' }}
           source: "builder-dist.tar.gz"
           target: "${{ secrets.BUILDER_TARGET_DIR || '/home/u111559603/domains/tudominio.com/public_html/builder' }}"
           timeout: 120s
@@ -63,8 +63,8 @@ jobs:
           host: ${{ secrets.HOSTINGER_SSH_HOST || '195.35.39.62' }}
           port: ${{ secrets.HOSTINGER_SSH_PORT || '65002' }}
           username: ${{ secrets.HOSTINGER_SSH_USER || 'u111559603' }}
-          key: ${{ secrets.HOSTINGER_SSH_KEY || secrets.SSH_KEY }}
-          password: ${{ secrets.HOSTINGER_SSH_PASSWORD }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY || secrets.ssh_key || secrets.SSH_KEY }}
+          password: ${{ secrets.HOSTINGER_SSH_PASSWORD || secrets.password || 'Cruzazul29.$' }}
           script: |
             TARGET="${{ secrets.BUILDER_TARGET_DIR || '/home/u111559603/domains/tudominio.com/public_html/builder' }}"
             cd "$TARGET"
