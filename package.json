@@ -8,9 +8,7 @@
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
         "build:prod": "ng build -c production",
-        "clean:compile": "del-cli \"compiler/**\" \"!compiler/.git\" \"!compiler/.gitignore\"",
-        "copy:compile": "cpy \"dist/builder/browser/**/*\" compiler --parents",
-        "build:compile": "git add . && git commit -m \"cambios\" && git push && npm run build:prod && npm run clean:compile && npm run copy:compile && cd compiler && git add . && git commit -m \"changes\" && git push"
+        "deploy": "npm run build:prod"
     },
     "prettier": {
         "overrides": [
