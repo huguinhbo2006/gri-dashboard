@@ -1,0 +1,8 @@
+<ng-container [ngSwitch]="element.type">
+    <app-navbar *ngSwitchCase="'navbar'" [props]="element.props" (actualizarProps)="onPropsUpdate($event)"></app-navbar>
+    <app-hero *ngSwitchCase="'hero'" [props]="element.props" (actualizarProps)="onPropsUpdate($event)"></app-hero>
+    <app-events-grid *ngSwitchCase="'events-grid'" [props]="element.props" (actualizarProps)="onPropsUpdate($event)"></app-events-grid>
+    <app-services *ngSwitchCase="'services'" [props]="element.props" (actualizarProps)="onPropsUpdate($event)"></app-services>
+    <app-contact *ngSwitchCase="'contact'" [props]="element.props" (actualizarProps)="onPropsUpdate($event)"></app-contact>
+    <app-footer *ngSwitchCase="'footer'" [props]="element.props" (actualizarProps)="onPropsUpdate($event)"></app-footer>
+</ng-container>

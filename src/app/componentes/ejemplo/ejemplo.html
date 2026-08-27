@@ -1,0 +1,31 @@
+<div class="card p-3 my-3 position-relative border-primary border-2">
+  <div class="d-flex justify-content-between align-items-center">
+    <h3 class="text-primary m-0">{{ titulo }}</h3>
+    <div class="d-flex gap-2">
+      <button class="btn btn-sm btn-outline-primary" (click)="abrirConfig()">⚙ Configurar</button>
+      <button class="btn btn-sm btn-outline-danger" (click)="eliminar()">✖ Eliminar</button>
+    </div>
+  </div>
+  <p class="mt-2 text-secondary">{{ contenido }}</p>
+
+  <!-- Modal de Configuración rápida local -->
+  <div *ngIf="mostrarConfig" class="modal d-block" style="background: rgba(0,0,0,0.5);" (click)="cerrarConfig()">
+    <div class="modal-dialog modal-dialog-centered" (click)="$event.stopPropagation()">
+      <div class="modal-content text-dark">
+        <div class="modal-header">
+          <h5 class="modal-title">Configurar Componente Ejemplo</h5>
+          <button type="button" class="btn-close" (click)="cerrarConfig()"></button>
+        </div>
+        <div class="modal-body">
+          <label class="form-label">Título</label>
+          <input class="form-control mb-3" [(ngModel)]="titulo" (ngModelChange)="onPropsChange()">
+          <label class="form-label">Contenido</label>
+          <textarea class="form-control" [(ngModel)]="contenido" (ngModelChange)="onPropsChange()"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="cerrarConfig()">Listo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

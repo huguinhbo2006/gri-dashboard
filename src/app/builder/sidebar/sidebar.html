@@ -1,0 +1,85 @@
+<div class="sidebar p-3 border-end">
+
+  <div class="sidebar-section mb-4">
+    <h6 class="section-title mb-2"><i class="fas fa-file-alt me-2"></i>Páginas</h6>
+    <select class="form-select page-selector mb-3" [(ngModel)]="selectedPageId" (change)="selectPage(selectedPageId)">
+      <option *ngFor="let page of pages" [value]="page.id">{{ page.name }}</option>
+    </select>
+  </div>
+
+  <div class="sidebar-section mb-4">
+    <h6 class="section-title mb-3"><i class="fas fa-cubes me-2"></i>Agregar Elementos</h6>
+    
+    <div class="elements-grid d-flex flex-column gap-2">
+      <!-- Navbar -->
+      <div class="element-banner banner-gradient-blue p-2 rounded cursor-pointer border" (click)="addElement('navbar')">
+        <div class="element-info">
+          <span class="element-name fw-bold">Navbar / Menú</span>
+          <span class="element-desc text-muted d-block small">Navegación principal con logo y enlaces</span>
+        </div>
+      </div>
+
+      <!-- Hero -->
+      <div class="element-banner banner-gradient-blue p-2 rounded cursor-pointer border" (click)="addElement('hero')">
+        <div class="element-info">
+          <span class="element-name fw-bold">Hero Section</span>
+          <span class="element-desc text-muted d-block small">Banner principal con título y botones CTA</span>
+        </div>
+      </div>
+
+      <!-- Events Grid -->
+      <div class="element-banner banner-gradient-blue p-2 rounded cursor-pointer border" (click)="addElement('events-grid')">
+        <div class="element-info">
+          <span class="element-name fw-bold">Grid de Eventos / Celebraciones</span>
+          <span class="element-desc text-muted d-block small">Tarjetas de celebraciones (Bodas, XV Años, Bautizos)</span>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div class="element-banner banner-gradient-blue p-2 rounded cursor-pointer border" (click)="addElement('services')">
+        <div class="element-info">
+          <span class="element-name fw-bold">Bloques de Servicios / Secciones</span>
+          <span class="element-desc text-muted d-block small">Filas alternadas con imagen, descripción y galería</span>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="element-banner banner-gradient-blue p-2 rounded cursor-pointer border" (click)="addElement('contact')">
+        <div class="element-info">
+          <span class="element-name fw-bold">Formulario de Contacto</span>
+          <span class="element-desc text-muted d-block small">Sección de cotización e información</span>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="element-banner banner-gradient-blue p-2 rounded cursor-pointer border" (click)="addElement('footer')">
+        <div class="element-info">
+          <span class="element-name fw-bold">Footer / Pie de Página</span>
+          <span class="element-desc text-muted d-block small">Pie de página con marca, enlaces y redes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="my-3">
+
+  <div class="d-flex flex-column gap-2 mt-3">
+    <button class="btn btn-save w-100" (click)="guardarConfiguracion()">
+      <i class="fas fa-save me-2"></i>Guardar Configuración
+    </button>
+    <button class="btn btn-outline-primary w-100" (click)="descargarConfiguracion()">
+      <i class="fas fa-download me-2"></i>Descargar Configuración
+    </button>
+    <button class="btn btn-outline-warning w-100" (click)="fileInputConfig.click()">
+      <i class="fas fa-upload me-2"></i>Cargar Configuración
+    </button>
+    <input type="file" #fileInputConfig accept=".txt,.json" class="d-none" (change)="cargarConfiguracion($event)">
+    <button class="btn btn-reload w-100" (click)="recargarConfiguracion()">
+      <i class="fas fa-undo me-2"></i>Traer Configuración
+    </button>
+    <button class="btn btn-clear-page w-100" (click)="limpiarPagina()">
+      <i class="fas fa-trash-alt me-2"></i>Limpiar Página
+    </button>
+  </div>
+
+</div>

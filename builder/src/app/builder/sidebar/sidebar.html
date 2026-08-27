@@ -1,0 +1,336 @@
+<div class="sidebar p-3 border-end">
+
+  <div class="sidebar-section mb-4">
+    <h6 class="section-title mb-2"><i class="fas fa-file-alt me-2"></i>Páginas</h6>
+    <select class="form-select page-selector mb-3" [(ngModel)]="selectedPageId" (change)="selectPage(selectedPageId)">
+      <option *ngFor="let page of pages" [value]="page.id">{{ page.name }}</option>
+    </select>
+  </div>
+
+  <div class="sidebar-section mb-4">
+    <h6 class="section-title mb-3"><i class="fas fa-cubes me-2"></i>Agregar Elementos</h6>
+    
+    <div class="elements-grid" style="max-height: 400px; overflow-y: auto;">
+      <!-- Ejemplo Card -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('ejemplo')">
+        <div class="element-icon"><i class="fas fa-cube"></i></div>
+        <div class="element-info">
+          <span class="element-name">Componente Ejemplo</span>
+          <span class="element-desc">Un componente de prueba con Bootstrap</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+
+      <!-- Imagen y Texto Card -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('imagen-texto')">
+        <div class="element-icon"><i class="fas fa-image"></i></div>
+        <div class="element-info">
+          <span class="element-name">Imagen + Texto</span>
+          <span class="element-desc">Componente configurable con imagen y descripción</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- Banner -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('banner')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">Banner</span>
+          <span class="element-desc">Componente de tipo banner</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- Hero -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('hero')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">Hero</span>
+          <span class="element-desc">Componente de tipo hero</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- Simulador -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('simulador')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">Simulador</span>
+          <span class="element-desc">Componente de tipo simulador</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- CursosUdg -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('cursos-udg')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">CursosUdg</span>
+          <span class="element-desc">Componente de tipo cursos-udg</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- MuroOpiniones -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('muro-opiniones')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">MuroOpiniones</span>
+          <span class="element-desc">Componente de tipo muro-opiniones</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- BadgeFlotante -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('badge-flotante')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">BadgeFlotante</span>
+          <span class="element-desc">Componente de tipo badge-flotante</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- Whatsapp -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('whatsapp')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">Whatsapp</span>
+          <span class="element-desc">Componente de tipo whatsapp</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- Faq -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('faq')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">Faq</span>
+          <span class="element-desc">Componente de tipo faq</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- FotoPlanteles -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('foto-planteles')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">FotoPlanteles</span>
+          <span class="element-desc">Componente de tipo foto-planteles</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- Mensaje -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('mensaje')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">Mensaje</span>
+          <span class="element-desc">Componente de tipo mensaje</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- Numeros -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('numeros')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">Numeros</span>
+          <span class="element-desc">Componente de tipo numeros</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- Profesores -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('profesores')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">Profesores</span>
+          <span class="element-desc">Componente de tipo profesores</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- Testimonios -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('testimonios')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">Testimonios</span>
+          <span class="element-desc">Componente de tipo testimonios</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- Menu -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('menu')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">Menu</span>
+          <span class="element-desc">Componente de tipo menu</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- Cursos -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('cursos')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">Cursos</span>
+          <span class="element-desc">Componente de tipo cursos</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- Streaming -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('streaming')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">Streaming</span>
+          <span class="element-desc">Componente de tipo streaming</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- ExperienciaEvento -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('experiencia-evento')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">ExperienciaEvento</span>
+          <span class="element-desc">Componente de tipo experiencia-evento</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- Categorias -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('categorias')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">Categorias</span>
+          <span class="element-desc">Componente de tipo categorias</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- Modalidades -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('modalidades')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">Modalidades</span>
+          <span class="element-desc">Componente de tipo modalidades</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- Minibanner -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('minibanner')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">Minibanner</span>
+          <span class="element-desc">Componente de tipo minibanner</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- GaleriaCarrusel -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('galeria-carrusel')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">GaleriaCarrusel</span>
+          <span class="element-desc">Componente de tipo galeria-carrusel</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- VideoTexto -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('video-texto')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">VideoTexto</span>
+          <span class="element-desc">Componente de tipo video-texto</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- TablaAdmitidos -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('tabla-admitidos')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">TablaAdmitidos</span>
+          <span class="element-desc">Componente de tipo tabla-admitidos</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- KommoForm -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('kommo-form')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">KommoForm</span>
+          <span class="element-desc">Componente de tipo kommo-form</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- BannerDescripcion -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('banner-descripcion')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">BannerDescripcion</span>
+          <span class="element-desc">Componente de tipo banner-descripcion</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- ImagenComponent -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('imagen')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">ImagenComponent</span>
+          <span class="element-desc">Componente de tipo imagen</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- DocumentosPdf -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('documentos-pdf')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">DocumentosPdf</span>
+          <span class="element-desc">Componente de tipo documentos-pdf</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- TablaCarreras -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('tabla-carreras')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">TablaCarreras</span>
+          <span class="element-desc">Componente de tipo tabla-carreras</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- FormImagen -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('form-imagen')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">FormImagen</span>
+          <span class="element-desc">Componente de tipo form-imagen</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- EspacioMenu -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('espacio-menu')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">EspacioMenu</span>
+          <span class="element-desc">Componente de tipo espacio-menu</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+      <!-- ExamenGratisComponent -->
+      <div class="element-banner banner-gradient-blue mb-2" (click)="addElement('examen-gratis')">
+        <div class="element-icon"><i class="fas fa-plus-circle"></i></div>
+        <div class="element-info">
+          <span class="element-name">ExamenGratisComponent</span>
+          <span class="element-desc">Componente de tipo examen-gratis</span>
+        </div>
+        <div class="element-action"><i class="fas fa-plus"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="my-3">
+
+  <div class="d-flex flex-column gap-2 mt-3">
+    <button class="btn btn-save w-100" (click)="guardarConfiguracion()">
+      <i class="fas fa-save me-2"></i>Guardar Configuración
+    </button>
+    <button class="btn btn-outline-primary w-100" (click)="descargarConfiguracion()">
+      <i class="fas fa-download me-2"></i>Descargar Configuración
+    </button>
+    <button class="btn btn-outline-warning w-100" (click)="fileInputConfig.click()">
+      <i class="fas fa-upload me-2"></i>Cargar Configuración
+    </button>
+    <input type="file" #fileInputConfig accept=".txt,.json" class="d-none" (change)="cargarConfiguracion($event)">
+    <button class="btn btn-reload w-100" (click)="recargarConfiguracion()">
+      <i class="fas fa-undo me-2"></i>Traer Configuración
+    </button>
+    <button class="btn btn-clear-page w-100" (click)="limpiarPagina()">
+      <i class="fas fa-trash-alt me-2"></i>Limpiar Página
+    </button>
+  </div>
+
+</div>

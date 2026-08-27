@@ -1,0 +1,31 @@
+<div class="canvas p-3" cdkDropList [cdkDropListData]="elements" (cdkDropListDropped)="drop($event)">
+  <div class="row g-2">
+    <div *ngFor="let el of elements; let i = index; trackBy: trackById"
+         [class]="'canvas-block col-12 col-md-' + (el.col || 12)"
+         cdkDrag>
+
+        <!-- HANDLE PARA ARRASTRAR + SELECTOR DE COLUMNAS -->
+        <div class="drag-handle d-flex align-items-center justify-content-between" cdkDragHandle>
+            <span>☰ Arrastrar sección</span>
+            <div class="col-selector d-flex align-items-center gap-1" (click)="$event.stopPropagation()">
+                <span class="col-label">Col:</span>
+                <div class="btn-group btn-group-sm">
+                    <button *ngFor="let c of colOptions"
+                            class="btn btn-col"
+                            [class.active]="(el.col || 12) === c"
+                            (click)="cambiarCol(i, c)">
+                        {{ c }}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="element-content-wrapper position-relative">
+          <button class="btn btn-danger btn-sm position-absolute top-0 end-0 m-2 z-3" (click)="eliminarElemento(i)">
+            <i class="fas fa-trash"></i>
+          </button>
+          <app-element-host [element]="el" (actualizarProps)="actualizarProps(i, $event)"></app-element-host>
+        </div>
+    </div>
+  </div>
+</div>

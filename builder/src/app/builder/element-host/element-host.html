@@ -1,0 +1,23 @@
+<ng-container [ngSwitch]="element.type">
+
+    <app-banner *ngSwitchCase="'banner'" 
+                [images]="element.props.images"
+                [styleType]="element.props.styleType"
+                [title]="element.props.title"
+                [subtitle]="element.props.subtitle"
+                [description]="element.props.description"
+                [highlightText]="element.props.highlightText"
+                [buttonText]="element.props.buttonText"
+                [infoText]="element.props.infoText"
+                [linkType]="element.props.linkType"
+                [linkPageSlug]="element.props.linkPageSlug"
+                [linkUrl]="element.props.linkUrl"
+                [sendUrl]="element.props.sendUrl"
+                [sendToken]="element.props.sendToken"
+                [pipelineId]="element.props.pipelineId">
+    </app-banner>
+
+    <app-espacio-menu *ngSwitchCase="'espacio-menu'" [props]="element.props">
+    </app-espacio-menu>
+
+</ng-container>

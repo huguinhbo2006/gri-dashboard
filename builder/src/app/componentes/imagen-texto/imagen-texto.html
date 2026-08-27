@@ -1,0 +1,55 @@
+<div class="card p-3 my-3 position-relative border-primary border-2">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <span class="badge bg-primary">Componente: Imagen + Texto</span>
+    <div class="d-flex gap-2">
+      <button class="btn btn-sm btn-outline-primary" (click)="abrirConfig()">⚙ Configurar</button>
+      <button class="btn btn-sm btn-outline-danger" (click)="eliminar()">✖ Eliminar</button>
+    </div>
+  </div>
+
+  <div class="row align-items-center" [class.flex-row-reverse]="alineacion === 'derecha'">
+    <div class="col-md-6 mb-3 mb-md-0 text-center">
+      <img [src]="imagenUrl" alt="Imagen del Componente" class="img-fluid rounded shadow-sm" style="max-height: 250px; object-fit: cover;">
+    </div>
+    <div class="col-md-6">
+      <h3 class="text-primary">{{ titulo }}</h3>
+      <p class="text-secondary" style="white-space: pre-line;">{{ contenido }}</p>
+    </div>
+  </div>
+
+  <!-- Modal de Configuración -->
+  <div *ngIf="mostrarConfig" class="modal d-block" style="background: rgba(0,0,0,0.5);" (click)="cerrarConfig()">
+    <div class="modal-dialog modal-dialog-centered" (click)="$event.stopPropagation()">
+      <div class="modal-content text-dark">
+        <div class="modal-header">
+          <h5 class="modal-title">Configurar Imagen + Texto</h5>
+          <button type="button" class="btn-close" (click)="cerrarConfig()"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Título</label>
+            <input class="form-control" [(ngModel)]="titulo" (ngModelChange)="onPropsChange()">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Contenido / Descripción</label>
+            <textarea class="form-control" rows="4" [(ngModel)]="contenido" (ngModelChange)="onPropsChange()"></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Subir Imagen</label>
+            <input type="file" class="form-control" accept="image/*" (change)="onFileSelected($event)">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Alineación de la Imagen</label>
+            <select class="form-select" [(ngModel)]="alineacion" (ngModelChange)="onPropsChange()">
+              <option value="izquierda">Imagen a la izquierda, texto a la derecha</option>
+              <option value="derecha">Texto a la izquierda, imagen a la derecha</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="cerrarConfig()">Listo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    name: Build Angular & Deploy via SSH
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Build production
+        run: npm run build:prod
+
+      - name: Package dist files
+        run: tar -czf dist.tar.gz -C dist/builder/browser .
+
+      - name: Upload archive to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 65002
+          source: "dist.tar.gz"
+          target: "~/"
+
+      - name: Extract and deploy on server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 65002
+          script: |
+            rm -rf ${{ secrets.SSH_TARGET_DASHBOARD }}/*
+            tar -xzf ~/dist.tar.gz -C ${{ secrets.SSH_TARGET_DASHBOARD }}
+            rm ~/dist.tar.gz
+            echo "Deploy completado exitosamente en Dashboard"
